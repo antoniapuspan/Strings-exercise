@@ -20,6 +20,10 @@ function generateOutput() {
     const middleName = findMiddleName(name);
     console.log("middle name: ", middleName);
 
+    //filename
+    const fileName = checkFileExtension(name);
+    console.log("file name: ", fileName);
+
 }
 // capitalize first letter
 function capitalizeFirstLetter(x) {
@@ -49,4 +53,11 @@ function findMiddleName (x) {
     } else {
         return null;
     }
+}
+ //file name 
+function checkFileExtension(x) {
+    let fileName = document.querySelector('#input-field').value;
+    let extension = fileName.split('.').pop();
+    document.textContent = extension;
+    return extension;
 }
