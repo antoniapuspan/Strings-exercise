@@ -1,4 +1,5 @@
 document.getElementById("button").addEventListener("click", generateOutput);
+
 function generateOutput() {
     //get the name from input field
     let name = document.getElementById("input-field").value;
@@ -10,12 +11,12 @@ function generateOutput() {
     let firstName = findFirstName(name);
     console.log("first name: ", firstName);
 
-    
+
     //first name length
     const nameLen = firstName.length;
     console.log("first name length: ", nameLen);
 
-   
+
     //find middle name
     const middleName = findMiddleName(name);
     console.log("middle name: ", middleName);
@@ -28,6 +29,10 @@ function generateOutput() {
     const thirdLetter = thirdLetterUppercase(name);
     console.log(thirdLetter);
 
+    //make character uppercase
+    const charUppercase = spaceBeforeUppercase(name);
+    console.log(charUppercase);
+
 }
 // capitalize first letter
 function capitalizeFirstLetter(x) {
@@ -35,15 +40,15 @@ function capitalizeFirstLetter(x) {
 }
 
 //first name
-function findFirstName (x) {
+function findFirstName(x) {
     let fullName = x.split(' ');
     firstName = fullName[0];
     return firstName;
 }
 //middle name
-function findMiddleName (x) {
+function findMiddleName(x) {
     let fullName = x.split(' ');
-    let middleName; 
+    let middleName;
     //check if the array of names has middle names or not
     if (fullName.length > 2) {
         //remove last name
@@ -58,15 +63,22 @@ function findMiddleName (x) {
         return null;
     }
 }
- //file name 
+//file name 
 function checkFileExtension(x) {
     let fileName = document.querySelector('#input-field').value;
     let extension = fileName.split('.').pop();
     document.textContent = extension;
     return extension;
 }
- //make third character uppercase
- function thirdLetterUppercase(x) {
-     return x.substring(0,2) + x[2].toUpperCase() + x.substring(3);
- }
- 
+//make third character uppercase
+function thirdLetterUppercase(x) {
+    return x.substring(0, 2) + x[2].toUpperCase() + x.substring(3);
+}
+
+function spaceBeforeUppercase(x) {
+    if (x.indexOf(' ') >= 0) {
+        let n = x.indexOf(' ');
+        x = x.substring(0, n+1) + x[n + 1].toUpperCase() + x.substring(n + 2);
+    }
+    return x;
+}
