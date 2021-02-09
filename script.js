@@ -24,6 +24,10 @@ function generateOutput() {
     const fileName = checkFileExtension(name);
     console.log("file name: ", fileName);
 
+    //capitalize third letter
+    const thirdLetter = thirdLetterUppercase(name);
+    console.log(thirdLetter);
+
 }
 // capitalize first letter
 function capitalizeFirstLetter(x) {
@@ -61,3 +65,8 @@ function checkFileExtension(x) {
     document.textContent = extension;
     return extension;
 }
+ //make third character uppercase
+ function thirdLetterUppercase(x) {
+     return x.substring(0,2) + x[2].toUpperCase() + x.substring(3);
+ }
+ 
