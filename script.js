@@ -33,6 +33,29 @@ function generateOutput() {
     const charUppercase = spaceBeforeUppercase(name);
     console.log(charUppercase);
 
+    let opt = document.getElementById("choice").value;
+    console.log(opt);
+    let output = document.getElementById("output");
+    let myInput = document.getElementById("input-field");
+
+    myInput.type = "text";
+    if(opt == 0) {
+        output.value = capName;
+    } else if (opt == 1) {
+        output.value = fileName;
+    } else if (opt == 2) {
+        output.value = nameLen;
+    } else if (opt == 3) {
+        output.value = middleName;
+    } else if (opt == 4) {
+        output.value = fileName;
+    } else if (opt == 5) {
+        myInput.type = 'password';
+    } else if (opt == 6) {
+        output.value = thirdLetter;
+    } else if (opt == 7) {
+        output.value = charUppercase;
+    }
 }
 // capitalize first letter
 function capitalizeFirstLetter(x) {
