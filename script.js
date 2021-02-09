@@ -1,4 +1,19 @@
 document.getElementById("button").addEventListener("click", generateOutput);
+document.getElementById("choice").addEventListener("change", setInputType);
+
+function setInputType() {
+    let opt = document.getElementById("choice").value;
+    let myInput = document.getElementById("input-field");
+    if (opt == 5) {
+        myInput.type = 'password';
+
+    } else if (opt == 4) {
+        myInput.type = 'file';
+    } else {
+        myInput.type = 'text';
+    }
+
+}
 
 function generateOutput() {
     //get the name from input field
@@ -6,40 +21,32 @@ function generateOutput() {
 
     //capitalize first letter in name
     let capName = capitalizeFirstLetter(name);
-    console.log("capitalize name: ", capName);
     //find first name
     let firstName = findFirstName(name);
-    console.log("first name: ", firstName);
 
 
     //first name length
     const nameLen = firstName.length;
-    console.log("first name length: ", nameLen);
 
 
     //find middle name
     const middleName = findMiddleName(name);
-    console.log("middle name: ", middleName);
 
     //filename
     const fileName = checkFileExtension(name);
-    console.log("file name: ", fileName);
 
     //capitalize third letter
     const thirdLetter = thirdLetterUppercase(name);
-    console.log(thirdLetter);
 
     //make character uppercase
     const charUppercase = spaceBeforeUppercase(name);
-    console.log(charUppercase);
 
     let opt = document.getElementById("choice").value;
-    console.log(opt);
     let output = document.getElementById("output");
     let myInput = document.getElementById("input-field");
 
     myInput.type = "text";
-    if(opt == 0) {
+    if (opt == 0) {
         output.value = capName;
     } else if (opt == 1) {
         output.value = fileName;
@@ -49,8 +56,6 @@ function generateOutput() {
         output.value = middleName;
     } else if (opt == 4) {
         output.value = fileName;
-    } else if (opt == 5) {
-        myInput.type = 'password';
     } else if (opt == 6) {
         output.value = thirdLetter;
     } else if (opt == 7) {
@@ -101,7 +106,7 @@ function thirdLetterUppercase(x) {
 function spaceBeforeUppercase(x) {
     if (x.indexOf(' ') >= 0) {
         let n = x.indexOf(' ');
-        x = x.substring(0, n+1) + x[n + 1].toUpperCase() + x.substring(n + 2);
+        x = x.substring(0, n + 1) + x[n + 1].toUpperCase() + x.substring(n + 2);
     }
     return x;
 }
